@@ -1,13 +1,17 @@
+import { useContext } from "react";
+
+import { TodoContext } from "../../context";
+
 import { Item } from "../../components/Item";
 import { List } from "../../components/List";
+import { Form } from "../../components/Form";
+import { Modal } from "../../components/Modal";
+import { Title } from "../../components/Title";
+import { Timer } from "../../components/Timer";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { Counter } from "../../components/counter";
 import { Loading } from "../../components/Loading";
-import { TodoContext } from "../../context";
-import { useContext } from "react";
-import { Modal } from "../../components/Modal";
-import { Form } from "../../components/Form";
 
 const AppUI = () => {
   const { loading, error, onDelete, onComplete, toShowToDos, openModal } =
@@ -15,6 +19,8 @@ const AppUI = () => {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8 flex justify-center items-start ">
       <div className="w-full max-w-2xl bg-gray-800 rounded-xl shadow-2xl p-8">
+        <Title />
+        <Timer />
         <Counter />
         <Input />
         <List>
