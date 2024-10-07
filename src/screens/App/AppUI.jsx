@@ -29,11 +29,9 @@ const AppUI = () => {
               <Loading /> <Loading />
             </>
           )}
-          {error && (
-            <p className="text-sm text-gray-900 dark:text-white">Error</p>
-          )}
+          {error && <p className="text-sm text-gray-900 text-white">Error</p>}
           {!loading && toShowToDos.length === 0 && (
-            <p className="text-base text-gray-900 dark:text-white">
+            <p className="text-base text-gray-900 text-white">
               No tienes tareas, añade una nueva
             </p>
           )}
