@@ -23,4 +23,8 @@ const getStorage = (isFirstTry = false) => {
   }
 };
 
-export { getStorage, setStorage };
+const formatTime = (time) => {
+  return time < 10 ? `0${time}` : String(time);
+};
+
+export { getStorage, setStorage, formatTime };
