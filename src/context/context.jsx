@@ -1,11 +1,6 @@
-import {
-  createContext,
-  //useEffect,
-  useState,
-} from "react";
+import { createContext, useState } from "react";
 import { useStorage } from "../hooks/useStorage";
 import { usePomodoro } from "../hooks/usePomodoro";
-//import { statusIds } from "../assets/constans";
 
 const TodoContext = createContext();
 
@@ -14,7 +9,6 @@ const ToDoProvider = ({ children }) => {
   const [openModal, setModal] = useState(false);
   const { ToDos, setToDos, loading, error } = useStorage();
   const time = usePomodoro();
-  //const timeStatus = time.status.id;
 
   const setOpenModal = () => setModal(!openModal);
 
@@ -33,23 +27,6 @@ const ToDoProvider = ({ children }) => {
     });
     setToDos(temporalToDos);
   };
-  /*
-  useEffect(() => {
-    console.log({ timeStatus, a: statusIds.rest });
-    if (timeStatus === statusIds.rest) {
-      console.log("A");
-      const firstIncompletedTask = ToDos.findIndex((task) => !task.completed);
-      if (firstIncompletedTask < 0) return;
-      const temporalToDos = ToDos.map((task, index) => {
-        if (index === firstIncompletedTask) {
-          return { ...task, completed: !task.completed };
-        }
-        return task;
-      });
-      setToDos(temporalToDos);
-    }
-  }, [timeStatus, ToDos, setToDos]);
-  */
 
   const onDeleteTask = (description) => {
     const modifiedToDos = ToDos.filter(
